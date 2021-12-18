@@ -12,7 +12,7 @@ const ContentAreaList = () => {
 
     useEffect(() => {
         setlistReload(true)
-        const url = 'http://localhost:5000/content-areas';
+        const url = 'https://publication-management-client.herokuapp.com/content-areas';
         fetch(url)
             .then(res => res.json())
             .then(data => setContentAreas(data));
@@ -24,7 +24,7 @@ const ContentAreaList = () => {
         setlistReload(false);
         const proceed = window.confirm('Are you sure to change status?');
         if (proceed) {
-            const url = `http://localhost:5000/content-areas/${id}`;
+            const url = `https://publication-management-client.herokuapp.com/content-areas/${id}`;
             fetch(url, {
                 method: 'PUT'
             })

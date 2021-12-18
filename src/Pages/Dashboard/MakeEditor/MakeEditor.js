@@ -5,7 +5,7 @@ const MakeEditor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [message, setMessage] = useState('');
     const onSubmit = data => {
-        fetch('http://localhost:5000/add-editor', {
+        fetch('https://publication-management-client.herokuapp.com/add-editor', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

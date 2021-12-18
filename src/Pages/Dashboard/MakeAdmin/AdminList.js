@@ -10,7 +10,7 @@ const AdminList = () => {
 
     useEffect(() => {
         setlistReload(true)
-        const url = `http://localhost:5000/users`;
+        const url = `https://publication-management-client.herokuapp.com/users`;
         fetch(url)
             .then(res => res.json())
             .then(data => setUserList(data));
@@ -22,7 +22,7 @@ const AdminList = () => {
         setlistReload(false);
         const proceed = window.confirm('Are you sure to change status?');
         if (proceed) {
-            const url = `http://localhost:5000/content-areas/${id}`;
+            const url = `https://publication-management-client.herokuapp.com/content-areas/${id}`;
             fetch(url, {
                 method: 'PUT'
             })
