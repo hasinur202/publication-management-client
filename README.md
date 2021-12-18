@@ -1,6 +1,13 @@
 # PUBLICATION MANAGEMENT
 Project Live link: [Click here](https://publication-management.web.app/).
 
+## Initial Credential
+Admin: admin@admin.com
+Pass: 123456
+
+Editor: editor@gmail.com
+Pass: 123456
+
 ## Technologies
 
 This project developed by ReactJs.
