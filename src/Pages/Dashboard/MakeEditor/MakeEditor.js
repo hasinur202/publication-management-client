@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const MakeAdmin = () => {
+const MakeEditor = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [message, setMessage] = useState('');
     const onSubmit = data => {
-        fetch('http://localhost:5000/add-admin', {
+        fetch('http://localhost:5000/add-editor', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -16,7 +16,7 @@ const MakeAdmin = () => {
             .then(result => {
                 if (result.modifiedCount) {
                     /** alert('Admin Added Successfully'); */
-                    setMessage('Admin Added Successfully');
+                    setMessage('Editor Added Successfully');
                     reset();
                 } else {
                     setMessage(result.message);
@@ -27,7 +27,7 @@ const MakeAdmin = () => {
         <section className="appointment section-bg">
             <div className="container" data-aos="fade-up">
                 <div className="section-title">
-                    <h2>Add a New Admin</h2>
+                    <h2>Add Editor</h2>
                 </div>
                 { message &&
                     <div class="alert alert-warning" role="alert">
@@ -45,13 +45,12 @@ const MakeAdmin = () => {
                         { errors.length > 0 &&
                             errors.map(error => <div className="error-message">{error}</div> )
                         }
-                        <div className="sent-message">Your added request has been sent successfully. Thank you!</div>
                     </div>
-                    <div className="text-center"><button className="btn-primary px-3 py-2" type="submit">Add Admin</button></div>
+                    <div className="text-center"><button className="btn-primary px-3 py-2" type="submit">Add Editor</button></div>
                 </form>
             </div>
         </section>
     );
 };
 
-export default MakeAdmin;
+export default MakeEditor;

@@ -10,6 +10,8 @@ import Order from './Pages/Order/Order';
 import Register from './Pages/Register/Register';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import AllProduct from './Pages/AllProduct/AllProduct';
+import ResearchDetail from './Pages/ResearchDetails/ResearchDetail';
+import ContentSubmission from './Pages/ContentSubmission/ContentSubmission';
 
 
 function App() {
@@ -33,6 +35,14 @@ function App() {
             <Route exact path="/register">
               <Register></Register>
             </Route>
+            <PrivateRoute path="/research-details/:_id">
+              <ResearchDetail></ResearchDetail>
+            </PrivateRoute>
+            <PrivateRoute exact path="/content-submission/:_id">
+              <ContentSubmission></ContentSubmission>
+            </PrivateRoute>
+
+
             <Route exact path="/all-products">
               <AllProduct></AllProduct>
             </Route>

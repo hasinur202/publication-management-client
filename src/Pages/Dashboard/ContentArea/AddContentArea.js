@@ -1,10 +1,12 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 
-const AddProduct = () => {
+const AddContentArea = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addproduct', {
+        data.status = 1;
+        fetch('http://localhost:5000/add-content-area', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -14,7 +16,7 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(result => {
                 if (result.insertedId) {
-                    alert('Product Added Successfully');
+                    alert('Content Area Added Successfully');
                     reset();
                 }
             })
@@ -22,25 +24,21 @@ const AddProduct = () => {
     return (
         <section id="appointment" className="appointment section-bg">
             <div className="container" data-aos="fade-up">
-                <div className="section-title">
-                    <h2>Add a New Product</h2>
+                <div className="section-title pb-0">
+                    <h2>Add Content Areas</h2>
+                </div>
+                <div className="row">
+                    <div className="bg-light mb-2" style={{textAlign: 'right'}}>
+                        <Link to="content-area-list" className="btn btn-warning">Content Areas List</Link>
+                    </div>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="php-email-form" data-aos="fade-up" data-aos-delay="100">
                     <div className="row">
                         <div className="col-md-6 form-group">
-                            <input defaultValue="" {...register("name")} type="text" className="form-control" placeholder="Product Name" required />
+                            <input defaultValue="" {...register("name")} type="text" className="form-control" placeholder="Content Area Title" required />
                         </div>
                         <div className="col-md-6 form-group">
-                            <input defaultValue="" {...register("price")} type="number" className="form-control" placeholder="Price (ex. 5000)" required />
-                        </div>
-                        <div className="col-md-12 form-group mt-md-0">
                             <input defaultValue="" {...register("img")} type="text" className="form-control" placeholder="Image Url" required />
-                        </div>
-                        {/* <div className="col-md-6 form-group mt-3 mt-md-0">
-                            <input defaultValue="" {...register("time")} type="text" className="form-control" placeholder="Time (ex. 2 Days)" required />
-                        </div> */}
-                        <div className="col-md-12 form-group mt-3 mt-md-0">
-                            <input defaultValue="" {...register("short_description")} type="text" className="form-control" placeholder="Short Description" required />
                         </div>
                     </div>
                     <div className="form-group mt-3">
@@ -53,11 +51,13 @@ const AddProduct = () => {
                         }
                         <div className="sent-message">Your added request has been sent successfully. Thank you!</div>
                     </div>
-                    <div className="text-center"><button className="btn-primary px-3 py-2" type="submit">Add Now</button></div>
+                    <div className="text-center">
+                        <button className="btn btn-primary" type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
         </section>
     );
 };
 
-export default AddProduct;
+export default AddContentArea;

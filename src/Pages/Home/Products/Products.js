@@ -6,7 +6,7 @@ import './Products.css';
 const Products = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/get-approved-conents')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
@@ -16,8 +16,8 @@ const Products = () => {
         <section id="services" className="doctors section-bg">
             <div className="container" data-aos="fade-up">
                 <div className="section-title">
-                <h2>Popular Cars</h2>
-                <p>The below Cars are very popular in Bongo Car Bazar..</p>
+                <h2>Latest research projects, publications, and talks</h2>
+                <p>Choose your necessary publications and buy easily.</p>
                 </div>
                 {/* products.slice(0, 6).map */}
                 <div className="row">

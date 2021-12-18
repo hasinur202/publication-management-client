@@ -81,9 +81,10 @@ const ManageOrder = () => {
                         <thead>
                             <tr>
                                 <th scope="col">SL. No.</th>
-                                <th scope="col">Order Id</th>
+                                <th scope="col">Content Title</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
+                                <th scope="col">Pay Status</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -92,9 +93,10 @@ const ManageOrder = () => {
                         {
                             orders.length > 0 ? orders.map(order => <tr key={order._id}>
                                     <th scope="row">{sL = sL + 1}</th>
-                                    <td>{order.product_id}</td>
+                                    <td>{order.content_title}</td>
                                     <td>{order.email}</td>
                                     <td>{order.phone}</td>
+                                    <td>{order.pay_status === 1 ? 'Paid' : 'Not Paid'}</td>
                                     <td>
                                     { order.status === 2 ? <span>Pending</span> : (order.status === 3 ? <span>Rejected</span> : <span>Approved</span>)}
                                     </td>

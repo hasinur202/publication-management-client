@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-lg-5 col-md-6">
                             <div className="footer-info">
-                                <h3 className="text-white">BONGO CAR BAZAR</h3>
+                                <h3 className="text-white">PUBLICATION MANAGEMENT</h3>
                                 <p className="text-white">
                                    Ring Road <br/>
                                     Mohammadpur-1207, Dhaka<br/><br/>
@@ -33,7 +33,7 @@ const Footer = () => {
                             <h4>Useful Links</h4>
                             <ul>
                                 <li><i className="bx bx-chevron-right"></i><Nav.Link className="text-info" as={HashLink} to="/home#home">Home</Nav.Link></li>
-                                <li><i className="bx bx-chevron-right"></i><Nav.Link className="text-info" as={HashLink} to="/all-products">Explore</Nav.Link></li>
+                                <li><i className="bx bx-chevron-right"></i><Nav.Link className="text-info" as={HashLink} to="/all-products">All Publications</Nav.Link></li>
                                 <li><i className="bx bx-chevron-right"></i><Nav.Link className="text-info" as={HashLink} to="/home#team">Our Team</Nav.Link></li>
                                 <li><i className="bx bx-chevron-right"></i><Nav.Link className="text-info" as={HashLink} to="/home#contact">Contact</Nav.Link></li>
                             </ul>
@@ -52,7 +52,7 @@ const Footer = () => {
 
             <div className="container">
                 <div className="copyright">
-                    &copy; Copyright <strong><span>BONGO CAR BAZAR</span></strong>. All Rights Reserved
+                    &copy; Copyright <strong><span>PUBLICATION MANAGEMENT</span></strong>. All Rights Reserved
                 </div>
                 <div className="credits">
                     Designed by <Link to="#">Sadia Mahmuda</Link>

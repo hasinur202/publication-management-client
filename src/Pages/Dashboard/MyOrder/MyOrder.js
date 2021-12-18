@@ -13,7 +13,7 @@ const MyOrder = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));
-    }, [user.uid]);
+    }, [user.email]);
 
      // DELETE AN USER
      const handleDeleteBooking = id => {
@@ -45,9 +45,10 @@ const MyOrder = () => {
                         <thead>
                             <tr>
                                 <th scope="col">SL. No.</th>
-                                <th scope="col">Product Id</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Content Title</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Phone</th>
+                                <th scope="col">Pay Status</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
                             </tr>
@@ -56,9 +57,10 @@ const MyOrder = () => {
                         {
                             bookings.length > 0 && bookings.map(book => <tr>
                                     <th scope="row">{sL = sL + 1}</th>
-                                    <td>{book.product_id}</td>
-                                    <td>{book.email}</td>
+                                    <td>{book.content_title}</td>
+                                    <td>{book.price}</td>
                                     <td>{book.phone}</td>
+                                    <td>{book.pay_status === 0 ? 'Not Paid' : 'Paid'}</td>
                                     <td>
                                     { book.status === 2 ? <span>Pending</span> : (book.status === 1 ? <span>Approved</span> : <span>Rejected</span>)}
                                     </td>

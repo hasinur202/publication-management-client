@@ -34,8 +34,8 @@ const Members = () => {
         <section id="team" className="doctors section-bg">
             <div className="container" data-aos="fade-up">
                 <div className="section-title">
-                <h2>TEAM ACTIVITY</h2>
-                <p>Our team always ready to help you to deliver your products.</p>
+                <h2>SUPPORT TEAM</h2>
+                {/* <p>Our team always ready to help you to deliver your products.</p> */}
                 </div>
                 <div className="row">
                     {

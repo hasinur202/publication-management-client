@@ -9,6 +9,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
+    const [editor, setEditor] = useState(false);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
@@ -86,6 +87,13 @@ const useFirebase = () => {
             .then(data => setAdmin(data.admin))
     }, [user.email])
 
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/editor-users/${user.email}`)
+            .then(res => res.json())
+            .then(data => setEditor(data.editor))
+    }, [user.email])
+
     const logOut = () => {
         setIsLoading(true);
         signOut(auth)
@@ -108,6 +116,7 @@ const useFirebase = () => {
     return {
         user,
         admin,
+        editor,
         isLoading,
         authError,
         registerUser,

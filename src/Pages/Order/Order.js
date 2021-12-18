@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
@@ -7,15 +8,26 @@ import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 
 const Order = () => {
+    const [product, setProduct] = useState({});
     const { _id } = useParams();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { user } = useAuth();
     const history = useHistory();
 
+    useEffect(() => {
+        const url = `http://localhost:5000/contents-by-id/${_id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setProduct(data));
+    }, [_id]);
+
     const onSubmit = data => {
         data.product_id = _id
+        data.content_title = product.content_title
+        data.price = product.price
         data.email = user.email
         data.status = 2
+        data.pay_status = 0
 
         fetch('http://localhost:5000/orders', {
             method: 'POST',
@@ -43,13 +55,16 @@ const Order = () => {
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)} className="php-email-form" data-aos="fade-up" data-aos-delay="100">                    
                     <div className="row">
+                        <div className="col-md-6 form-group mt-3 mt-md-0">
+                            <input readOnly defaultValue={product.content_title} {...register("content_title", { required: true })} type="text" className="form-control" placeholder="Image Url" required />
+                        </div>
                         <div className="col-md-6 form-group">
                             <input readOnly defaultValue={user.displayName} {...register("name")} type="text" className="form-control" required />
                         </div>
                         <div className="col-md-6 form-group mt-3 mt-md-0">
                             <input readOnly defaultValue={user.email} {...register("email", { required: true })} type="text" className="form-control" placeholder="Image Url" required />
                         </div>
-                        <div className="col-md-12 form-group mt-3 mt-md-0">
+                        <div className="col-md-6 form-group mt-3 mt-md-0">
                             <input defaultValue="" {...register("address")} type="text" className="form-control" placeholder="Address" required />
                         </div>
                         <div className="col-md-6 form-group mt-3 mt-md-0">

@@ -8,7 +8,7 @@ import Header from '../Shared/Header/Header';
 const AllProduct = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/get-approved-conents')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])
@@ -18,7 +18,7 @@ const AllProduct = () => {
         <section id="services" className="doctors section-bg">
             <div className="container" data-aos="fade-up">
                 <div className="section-title">
-                <h2>All Cars</h2>
+                <h2>All Publications</h2>
                 </div>
                 {/* products.slice(0, 6).map */}
                 <div className="row">

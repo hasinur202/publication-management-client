@@ -11,13 +11,14 @@ const Header = () => {
         <>
             <Navbar variant="light" className="py-2 mainNav" sticky="top" collapseOnSelect expand="lg" >
                 <Container>
-                    <h1 className="logo"><Link style={{fontSize: '25px', color: 'white'}} as={HashLink} to="/home#home">BONGO CAR BAZAR</Link></h1>
+                    <h1 className="logo"><Link style={{fontSize: '25px', color: 'white'}} as={HashLink} to="/home#home">Publication Management</Link></h1>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end text-white">
                         {user?.email && <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>}
                         <Nav.Link as={HashLink} to="/home#home">Home</Nav.Link>
-                        <Nav.Link as={HashLink} to="/all-products">Explore</Nav.Link>
-                        <Nav.Link as={HashLink} to="/home#team">Our Team</Nav.Link>
+                        <Nav.Link as={HashLink} to="/home#areas">Content Areas</Nav.Link>
+                        <Nav.Link as={HashLink} to="/all-products">All Publications</Nav.Link>
+                        {/* <Nav.Link as={HashLink} to="/home#team">Our Team</Nav.Link> */}
                         {/* {user.email &&
                             <Nav.Link as={HashLink} to="/add-tour">Add New Tour</Nav.Link>
                         }
