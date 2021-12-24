@@ -14,7 +14,7 @@ const ContentApproval = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = `http://localhost:5000/contents`;
+        const url = `https://publication-management-client.herokuapp.com/contents`;
         fetch(url)
             .then(res => res.json())
             .then(data => setContents(data));
@@ -24,7 +24,7 @@ const ContentApproval = () => {
         setlistReload(false);
         const proceed = window.confirm('Are you sure to reject?');
         if (proceed) {
-            const url = `http://localhost:5000/contents-reject/${id}`;
+            const url = `https://publication-management-client.herokuapp.com/contents-reject/${id}`;
             fetch(url, {
                 method: 'PUT'
             })
@@ -42,7 +42,7 @@ const ContentApproval = () => {
     //     setlistReload(false);
     //     const proceed = window.confirm('Are you sure to approve?');
     //     if (proceed) {
-    //         const url = `http://localhost:5000/contents-approve/${id}`;
+    //         const url = `https://publication-management-client.herokuapp.com/contents-approve/${id}`;
     //         fetch(url, {
     //             method: 'PUT'
     //         })

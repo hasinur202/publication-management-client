@@ -11,7 +11,7 @@ const Pay = () => {
     const [order, setOrder] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:5000/pay-order/${orderId}`;
+        const url = `https://publication-management-client.herokuapp.com/pay-order/${orderId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrder(data));

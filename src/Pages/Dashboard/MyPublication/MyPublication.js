@@ -12,7 +12,7 @@ const MyPublication = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = `http://localhost:5000/contents/${user.email}`;
+        const url = `https://publication-management-client.herokuapp.com/contents/${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setContents(data));
@@ -22,7 +22,7 @@ const MyPublication = () => {
      const handleDeleteContent = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/contents/${id}`;
+            const url = `https://publication-management-client.herokuapp.com/contents/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

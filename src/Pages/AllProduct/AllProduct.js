@@ -8,7 +8,7 @@ import Header from '../Shared/Header/Header';
 const AllProduct = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/get-approved-conents')
+        fetch('https://publication-management-client.herokuapp.com/get-approved-conents')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])

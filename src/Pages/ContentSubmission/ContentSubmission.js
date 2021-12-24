@@ -15,7 +15,7 @@ const ContentSubmission = () => {
     const history = useHistory();
 
     useEffect(() => {
-        const url = `http://localhost:5000/content-area-details/${_id}`;
+        const url = `https://publication-management-client.herokuapp.com/content-area-details/${_id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setContent(data));
@@ -28,7 +28,7 @@ const ContentSubmission = () => {
         data.img = content.img
         data.content_area = content.name
 
-        fetch('http://localhost:5000/contents', {
+        fetch('https://publication-management-client.herokuapp.com/contents', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

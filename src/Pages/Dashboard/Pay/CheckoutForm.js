@@ -12,7 +12,7 @@ const CheckoutForm = ({ order }) => {
     const [processing, setProcessing] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://publication-management-client.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -82,7 +82,7 @@ const CheckoutForm = ({ order }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice('_secret')[0]
             }
-            const url = `http://localhost:5000/pay-order/${_id}`;
+            const url = `https://publication-management-client.herokuapp.com/pay-order/${_id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

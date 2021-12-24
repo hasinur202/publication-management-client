@@ -10,7 +10,7 @@ const MyOrder = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = `http://localhost:5000/orders/${user.email}`;
+        const url = `https://publication-management-client.herokuapp.com/orders/${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));
@@ -20,7 +20,7 @@ const MyOrder = () => {
      const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://publication-management-client.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
