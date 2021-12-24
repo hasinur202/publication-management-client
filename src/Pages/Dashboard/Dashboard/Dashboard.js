@@ -172,7 +172,7 @@ const Dashboard = () => {
                             <Route exact path={`${path}/my-orders`}>
                                 <MyOrder></MyOrder>
                             </Route>
-                            <Route exact path={`${path}/payment`}>
+                            <Route exact path={`${path}/payment/:orderId`}>
                                 <Pay></Pay>
                             </Route>
                         </Switch>

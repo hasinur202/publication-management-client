@@ -6,7 +6,7 @@ const AddContentArea = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         data.status = 1;
-        fetch('https://publication-management-client.herokuapp.com/add-content-area', {
+        fetch('http://localhost:5000/add-content-area', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

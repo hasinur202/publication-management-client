@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
+import { Link } from "react-router-dom";
 
 
 const MyOrder = () => {
@@ -9,7 +10,7 @@ const MyOrder = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = `https://publication-management-client.herokuapp.com/orders/${user.email}`;
+        const url = `http://localhost:5000/orders/${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));
@@ -19,7 +20,7 @@ const MyOrder = () => {
      const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `https://publication-management-client.herokuapp.com/order/${id}`;
+            const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -55,12 +56,17 @@ const MyOrder = () => {
                         </thead>
                         <tbody>
                         {
-                            bookings.length > 0 && bookings.map(book => <tr>
+                            bookings.length > 0 && bookings.map(book => <tr key={book._id}>
                                     <th scope="row">{sL = sL + 1}</th>
                                     <td>{book.content_title}</td>
-                                    <td>{book.price}</td>
+                                    <td>${book.price}</td>
                                     <td>{book.phone}</td>
-                                    <td>{book.pay_status === 0 ? 'Not Paid' : 'Paid'}</td>
+                                    <td>
+                                        {
+                                            book.pay_status === 1 ? 'Paid' :
+                                            <Link to={`/dashboard/payment/${book._id}`}><button className='btn btn-primary btn-sm'>Pay</button></Link>
+                                        }
+                                    </td>
                                     <td>
                                     { book.status === 2 ? <span>Pending</span> : (book.status === 1 ? <span>Approved</span> : <span>Rejected</span>)}
                                     </td>

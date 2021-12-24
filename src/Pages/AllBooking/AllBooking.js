@@ -7,7 +7,7 @@ const AllBooking = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = 'https://publication-management-client.herokuapp.com/all-bookings';
+        const url = 'http://localhost:5000/all-bookings';
         fetch(url)
             .then(res => res.json())
             .then(data => setBookings(data));
@@ -17,7 +17,7 @@ const AllBooking = () => {
     const handleApproveBooking = id => {
     const proceed = window.confirm('Are you sure, you want to approve?');
     if (proceed) {
-        const url = `https://publication-management-client.herokuapp.com/approve-booking/${id}`;
+        const url = `http://localhost:5000/approve-booking/${id}`;
         fetch(url, {
             method: 'PUT'
         })
@@ -36,7 +36,7 @@ const AllBooking = () => {
     const handleRejectBooking = id => {
     const proceed = window.confirm('Are you sure, you want to reject?');
     if (proceed) {
-        const url = `https://publication-management-client.herokuapp.com/reject-booking/${id}`;
+        const url = `http://localhost:5000/reject-booking/${id}`;
         fetch(url, {
             method: 'PUT'
         })
@@ -55,7 +55,7 @@ const AllBooking = () => {
     const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `https://publication-management-client.herokuapp.com/bookings/${id}`;
+            const url = `http://localhost:5000/bookings/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

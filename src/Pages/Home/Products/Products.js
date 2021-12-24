@@ -6,7 +6,7 @@ import './Products.css';
 const Products = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('https://publication-management-client.herokuapp.com/get-approved-conents')
+        fetch('http://localhost:5000/get-approved-conents')
             .then(res => res.json())
             .then(data => setProducts(data));
     }, [])

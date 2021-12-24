@@ -15,7 +15,7 @@ const Order = () => {
     const history = useHistory();
 
     useEffect(() => {
-        const url = `https://publication-management-client.herokuapp.com/contents-by-id/${_id}`;
+        const url = `http://localhost:5000/contents-by-id/${_id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -29,7 +29,7 @@ const Order = () => {
         data.status = 2
         data.pay_status = 0
 
-        fetch('https://publication-management-client.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

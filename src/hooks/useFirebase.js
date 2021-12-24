@@ -82,14 +82,14 @@ const useFirebase = () => {
     }, [auth])
 
     useEffect(() => {
-        fetch(`https://publication-management-client.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
 
 
     useEffect(() => {
-        fetch(`https://publication-management-client.herokuapp.com/editor-users/${user.email}`)
+        fetch(`http://localhost:5000/editor-users/${user.email}`)
             .then(res => res.json())
             .then(data => setEditor(data.editor))
     }, [user.email])
@@ -103,7 +103,7 @@ const useFirebase = () => {
 
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://publication-management-client.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'

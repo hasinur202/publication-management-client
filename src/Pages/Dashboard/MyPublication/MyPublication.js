@@ -12,7 +12,7 @@ const MyPublication = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = `https://publication-management-client.herokuapp.com/contents/${user.email}`;
+        const url = `http://localhost:5000/contents/${user.email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setContents(data));
@@ -22,7 +22,7 @@ const MyPublication = () => {
      const handleDeleteContent = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `https://publication-management-client.herokuapp.com/contents/${id}`;
+            const url = `http://localhost:5000/contents/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -57,7 +57,7 @@ const MyPublication = () => {
                         </thead>
                         <tbody>
                         {
-                            conents.length > 0 && conents.map(content => <tr>
+                            conents.length > 0 && conents.map(content => <tr key={content._id}>
                                     <th scope="row">{sL = sL + 1}</th>
                                     <td>{content.content_area}</td>
                                     <td>{content.content_title}</td>

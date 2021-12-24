@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Research = () => {
     const [areas, setContentAreas] = useState([])
     useEffect(() => {
-        fetch('https://publication-management-client.herokuapp.com/content-areas')
+        fetch('http://localhost:5000/content-areas')
             .then(res => res.json())
             .then(data => setContentAreas(data));
     }, []);

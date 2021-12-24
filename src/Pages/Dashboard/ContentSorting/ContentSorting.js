@@ -12,7 +12,7 @@ const ContentSorting = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = `https://publication-management-client.herokuapp.com/contents`;
+        const url = `http://localhost:5000/contents`;
         fetch(url)
             .then(res => res.json())
             .then(data => setContents(data));
@@ -22,7 +22,7 @@ const ContentSorting = () => {
         setlistReload(false);
         const proceed = window.confirm('Are you sure to reject?');
         if (proceed) {
-            const url = `https://publication-management-client.herokuapp.com/contents-reject/${id}`;
+            const url = `http://localhost:5000/contents-reject/${id}`;
             fetch(url, {
                 method: 'PUT'
             })
@@ -40,7 +40,7 @@ const ContentSorting = () => {
         setlistReload(false);
         const proceed = window.confirm('Are you sure to recommend?');
         if (proceed) {
-            const url = `https://publication-management-client.herokuapp.com/contents-recommend/${id}`;
+            const url = `http://localhost:5000/contents-recommend/${id}`;
             fetch(url, {
                 method: 'PUT'
             })

@@ -14,7 +14,7 @@ function SetPrice(props) {
         const proceed = window.confirm('Are you sure to approve?');
         if (proceed) {
             const price = data.price
-            const url = `https://publication-management-client.herokuapp.com/contents-approve/${_id}/${price}`;
+            const url = `http://localhost:5000/contents-approve/${_id}/${price}`;
             fetch(url, {
                 method: 'PUT'
             })

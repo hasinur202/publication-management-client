@@ -8,7 +8,7 @@ const DashboardHome = () => {
     const [dashboard, setDashboard] = useState({});
 
     useEffect(() => {
-        const url = `https://publication-management-client.herokuapp.com/dashboard`;
+        const url = `http://localhost:5000/dashboard`;
         fetch(url)
             .then(res => res.json())
             .then(data => setDashboard(data));

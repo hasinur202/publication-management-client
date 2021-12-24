@@ -7,7 +7,7 @@ const ManageOrder = () => {
     let sL = 0;
 
     useEffect(() => {
-        const url = 'https://publication-management-client.herokuapp.com/all-orders';
+        const url = 'http://localhost:5000/all-orders';
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data));
@@ -17,7 +17,7 @@ const ManageOrder = () => {
     const handleApproveBooking = id => {
     const proceed = window.confirm('Are you sure, you want to approve?');
     if (proceed) {
-        const url = `https://publication-management-client.herokuapp.com/approve-order/${id}`;
+        const url = `http://localhost:5000/approve-order/${id}`;
         fetch(url, {
             method: 'PUT'
         })
@@ -36,7 +36,7 @@ const ManageOrder = () => {
     const handleRejectBooking = id => {
     const proceed = window.confirm('Are you sure, you want to reject?');
     if (proceed) {
-        const url = `https://publication-management-client.herokuapp.com/reject-order/${id}`;
+        const url = `http://localhost:5000/reject-order/${id}`;
         fetch(url, {
             method: 'PUT'
         })
@@ -55,7 +55,7 @@ const ManageOrder = () => {
     const handleDeleteBooking = id => {
         const proceed = window.confirm('Are you sure, you want to delete?');
         if (proceed) {
-            const url = `https://publication-management-client.herokuapp.com/order/${id}`;
+            const url = `http://localhost:5000/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -84,6 +84,7 @@ const ManageOrder = () => {
                                 <th scope="col">Content Title</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
+                                <th scope="col">Price</th>
                                 <th scope="col">Pay Status</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -96,6 +97,7 @@ const ManageOrder = () => {
                                     <td>{order.content_title}</td>
                                     <td>{order.email}</td>
                                     <td>{order.phone}</td>
+                                    <td>${order.price}</td>
                                     <td>{order.pay_status === 1 ? 'Paid' : 'Not Paid'}</td>
                                     <td>
                                     { order.status === 2 ? <span>Pending</span> : (order.status === 3 ? <span>Rejected</span> : <span>Approved</span>)}

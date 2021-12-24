@@ -10,7 +10,7 @@ const ProductDetails = () => {
     const { _id } = useParams();
 
     useEffect(() => {
-        const url = `https://publication-management-client.herokuapp.com/contents-by-id/${_id}`;
+        const url = `http://localhost:5000/contents-by-id/${_id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
